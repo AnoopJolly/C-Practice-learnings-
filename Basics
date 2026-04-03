@@ -1,0 +1,114 @@
+## Reverse an array
+#include<stdio.h>
+void reverse(int *arr,int n)
+{
+     for(int i;i<n/2;i++)
+    {
+        int temp=arr[i];
+        arr[i]=arr[n-i-1];
+        arr[n-i-1]=temp;
+    }
+}
+int main()
+{
+    int arr[]={1,2,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    reverse(arr,n);
+    
+    for(int i=0;i<n;i++)
+    printf("%d",arr[i]);
+    return 
+}
+## MAX min
+#include<stdio.h>
+#include<limits.h>
+void maxmin(int *arr,int n)
+{
+    int MAX=0;
+    int MIN=1000;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>MAX)
+        {
+            MAX=arr[i];
+        }
+        if(arr[i]<MIN)
+        {
+            MIN=arr[i];
+        }
+    }
+    
+    printf("%d max\n%d min\n ",MAX,MIN);
+    
+}
+int main()
+{
+    int arr[]={1,2,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    maxmin(arr,n);
+    
+    for(int i=0;i<n;i++)
+    printf("%d",arr[i]);
+    return 0;
+}
+## insering
+#include<stdio.h>
+
+void insert(int *arr,int n)
+{
+    int pos=3;
+    int val=4;
+    for(int i=n-1;i>=pos;i--)
+    {
+        arr[i+1]=arr[i];
+    }
+    arr[pos]=val;
+    
+}
+int main()
+{
+    int arr[6]={1,2,3,5,6};
+    int n=5;
+    insert(arr,n);
+    
+    for(int i=0;i<n+1;i++)
+    printf("%d ",arr[i]);
+    return 0;
+}
+
+##delete an element
+#include<stdio.h>
+
+int insert(int *arr,int n)
+{
+    int pos=3;
+    int val=4;
+    for(int i=0;i<=n;i++)
+    {
+        if(arr[i]==val)
+        {
+            for(int j=i;j<n;j++)
+            {
+                arr[j]=arr[j+1];
+            }
+            n--;
+            i++;
+        }
+    }
+    
+    return n;
+    //arr[pos]=val;
+    
+}
+int main()
+{
+    int arr[6]={1,2,3,4,5,6};
+    int n=6;
+    int size=insert(arr,n);
+    
+    for(int i=0;i<size;i++)
+    printf("%d ",arr[i]);
+    return 0;
+}
